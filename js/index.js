@@ -40,3 +40,32 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let navLinks = document.querySelectorAll('nav a');
+navLinks.forEach((el, i) => {
+  el.textContent = siteContent['nav']['nav-item-' + i];
+})
+
+let cta = document.getElementsByClassName('cta')[0];
+cta.querySelector('h1').innerHTML = siteContent['cta']['h1'].replaceAll(/ /g, '<br> ');
+cta.querySelector('button').textContent = siteContent['cta']['button'];
+cta.querySelector('img').setAttribute('src', siteContent['cta']['img-src']);
+
+let bodyText = document.querySelectorAll('.text-content');
+let bodyDiv = ['features', 'about', 'services', 'product', 'vision'];
+bodyDiv.forEach((section, i) => {
+  bodyText[i].querySelector('h4').textContent = siteContent['main-content'][section + '-h4'];
+  bodyText[i].querySelector('p').textContent = siteContent['main-content'][section + '-content'];
+});
+
+document.getElementById('middle-img').setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+let contact = document.getElementsByClassName('contact')[0];
+contact.querySelector('h4').textContent = siteContent['contact']['contact-h4'];
+
+let contactFields = contact.querySelectorAll('p');
+contactFields[0].textContent = siteContent['contact']['address'];
+contactFields[1].textContent = siteContent['contact']['phone'];
+contactFields[2].textContent = siteContent['contact']['email'];
+
+document.querySelector('footer p').textContent = siteContent['footer']['copyright'];
