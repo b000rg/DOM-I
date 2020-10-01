@@ -72,3 +72,18 @@ contact.querySelectorAll('p').forEach((item, index) => {
 });
 
 document.querySelector('footer p').textContent = siteContent.footer.copyright;
+
+// adds two new items to nav
+let home = document.createElement('a');
+home.setAttribute('href', '#');
+home.textContent = "Home";
+home.style.color = 'green';
+
+let team = document.createElement('a');
+team.setAttribute('href', '#');
+team.textContent = "Our Team";
+team.style.color = 'green';
+
+let nav = document.getElementsByTagName('nav')[0];
+nav.children.item(0).prepend(home);
+nav.appendChild(team);
