@@ -44,6 +44,7 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 let navItems = document.querySelectorAll('nav a');
 navItems.forEach((item, index) => {
   item.textContent = siteContent.nav['nav-item-' + index];
+  item.style.color = 'green';
 });
 
 document.querySelector('.cta h1').textContent = siteContent.cta.h1;
@@ -61,3 +62,13 @@ mainContentContent.forEach((item, index) => {
 });
 
 document.getElementById('middle-img').setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+let contact = document.getElementsByClassName('contact')[0];
+contact.getElementsByTagName('h4')[0].textContent = siteContent.contact['contact-h4'];
+
+let contactFields = ['address', 'phone', 'email'];
+contact.querySelectorAll('p').forEach((item, index) => {
+  item.textContent = siteContent.contact[contactFields[index]];
+});
+
+document.querySelector('footer p').textContent = siteContent.footer.copyright;
